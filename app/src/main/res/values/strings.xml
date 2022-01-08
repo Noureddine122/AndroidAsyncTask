@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">RSSAPPLE</string>
+    <string name="choisir_top_que_vous_voulez">Choisir Top que vous voulez</string>
+    <string name="top_5">TOP 5</string>
+    <string name="top_10">TOP 10</string>
+    <string name="entrer_le_nombre_du_top_music_que_vous_voulez">Entrer le nombre du top music que vous voulez</string>
+    <string name="submit">Submit</string>
+    <string name="entry_le_nombre_que_vous_voulez">Entry le nombre que vous voulez</string>
+    <string name="go">Go !</string>
+</resources>
