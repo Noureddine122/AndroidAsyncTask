@@ -33,7 +33,6 @@ public class ShowResults extends AppCompatActivity {
         String url = getIntent().getStringExtra("url");
         new ProcessInBackground().execute(url);
         mListView = (ListView) findViewById(R.id.listv);
-        Log.d("yes",links.toString());
         mListView.setOnItemClickListener((parent, view, position, id) -> {
             Uri uri = Uri.parse(links.get(position));
             Intent intent = new Intent(Intent.ACTION_VIEW, uri);
@@ -54,7 +53,6 @@ public class ShowResults extends AppCompatActivity {
                 XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
                 factory.setNamespaceAware(false);
                 XmlPullParser xpp = factory.newPullParser();
-                Log.d("url","Hey the url :"+url);
                 try {
 
                     xpp.setInput(url.openConnection().getInputStream(),"utf-8");
@@ -62,15 +60,12 @@ public class ShowResults extends AppCompatActivity {
                     Log.d("url","Err" + e.getMessage());
                 }
 
-                Log.d("url","I'm here");
-
                 boolean insideEntry = false;
                 xpp.next();
                 int eventType =xpp.getEventType();
                 while (eventType != XmlPullParser.END_DOCUMENT){
 
                     if(eventType == XmlPullParser.START_TAG){
-                        Log.d("url","first start tag");
 
                         switch (xpp.getName()) {
                             case "entry":
@@ -80,14 +75,12 @@ public class ShowResults extends AppCompatActivity {
                             case "title":
                                 if (insideEntry) {
                                     titles.add(xpp.nextText());
-                                    Log.d("url","Add titles");
 
                                 }
                                 break;
                             case "id":
                                 if (insideEntry) {
                                     links.add(xpp.nextText());
-                                    Log.d("url","Links add");
 
                                 }
                                 break;
